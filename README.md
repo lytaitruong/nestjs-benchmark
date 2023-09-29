@@ -20,7 +20,7 @@
 
 <h1 align="center">NESTJS BENCHMARKING NODEJS AND BUN</h1>
 
-## Describe
+## Test Performance
 
 - All tests are executed on MacBook Air M1 with 16G RAM 256 GB.
 - Benchmarking tool:
@@ -34,22 +34,22 @@ We will test 12 threads with 100 connections in 30s and 3 rounds
 
 Node v20 Express ~ 18k req/30s
 <p align="left">
-<img src="./archive/Nest_Node_Express.png" />
+<img src="./archive/performance/Nest_Node_Express.png" />
 </p>
 
 Node v20 Fastify ~ 71k req/30s
 <p align="left">
-<img src="./archive/Nest_Node_Fastify.png" />
+<img src="./archive/performance/Nest_Node_Fastify.png" />
 </p>
 
 Bun v1 Express  ~ 38k req/30s (211% with Node Express)
 <p align="left">
-<img src="./archive/Nest_Bun_Express.png" />
+<img src="./archive/performance/Nest_Bun_Express.png" />
 </p>
 
 Bun v1 Fastify ~ 58k req/30s (80% with Node Fastify)
 <p align="left">
-<img src="./archive/Nest_Bun_Fastify.png" />
+<img src="./archive/performance/Nest_Bun_Fastify.png" />
 </p>
 
 - The benchmark result tell us:
@@ -58,10 +58,38 @@ Bun v1 Fastify ~ 58k req/30s (80% with Node Fastify)
   - Bun Fastify is slower than NodeJS Fastify??? 😮
   - Bun Express is 2x faster than NodeJS Express 😂
 
+## Test Build Package Dependencies
+
+- All tests are executed on MacBook Air M1 with 16G RAM 256 GB.
+- Now we try to install with >= 1000 packages dependencies so that we can checkout Bun or Pnpm faster
+  - Bun v1.0.3
+  - Pnpm v8.2.0
+
+### Without lockfile
+Pnpm -> Done 24.1s
+<p align="left">
+<img src="./archive/build/pnpm-without-lock-file.png" />
+</p>
+Bun -> Done 5.9s (x4.8 with pnpm)
+<p align="left">
+<img src="./archive/build/bun-without-lock-file.png" />
+</p>
+
+### With lockfile
+Pnpm without lockfile -> 5.9s
+<p align="left">
+<img src="./archive/build/pnpm-with-lock-file.png" />
+</p>
+Bun without lockfile -> 0.93s (x6.3 with pnpm)
+<p align="left">
+<img src="./archive/build/bun-with-lock-file.png" />
+</p>
+
 ## Feeling
 
 - With the benchmark result above. I surprise when Express (Bun) is increase performance but Fastify (Bun) is decrease performance
 - But this is only testing healthcheck so it not represent Bun can be improve NestJS faster than NodeJS
+- If your project is dependencies a lot of library or third-party so using Bun with Fastify is the good option to choose
 
 ## Want to try in your computer
 
