@@ -5,6 +5,17 @@
   "author": "Lý Tại Trường",
   "private": true,
   "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lytaitruong/nestjs-benchmark.git"
+  },
+  "keywords": [
+    "bun",
+    "nestjs",
+    "benchmark",
+    "performance"
+  ],
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
