@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "description": "NestJS benchmark performance using NodeJS and Bun",
   "author": "Lý Tại Trường",
-  "private": true,
   "license": "MIT",
   "type": "module",
   "repository": {
