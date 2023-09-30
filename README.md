@@ -20,6 +20,29 @@
 
 <h1 align="center">NESTJS BENCHMARKING NODEJS AND BUN</h1>
 
+## TLDR
+
+- I prefer using NestJS + Fastify + Bun
+- We will test 12 threads with 100 connections in 30s and 3 rounds
+- These results are measured in req/s:
+
+| Rank | Framework      | Threads | Connections | Total 30s |  Req/s  |
+| -----| ---------------| --------| ------------| ----------| --------|
+| 1    | fastify (node) | 12      | 100         | 2,154,949 |  71,593 |
+| 2    | fastify (bun)  | 12      | 100         | 1,756,451 |  58,349 |
+| 3    | express (bun)  | 12      | 100         | 1,134,314 |  37,776 |
+| 4    | express (node) | 12      | 100         |   541,815 |  18,018 |
+
+- These results are measured in build/s
+
+| Rank | Package manager  | Time   |
+| -----| -----------------| -------|
+| 1    | bun lock-file    |  0.9s  |
+| 2    | pnpm lock-file   |  5.1s  |
+| 3    | bun unlock-file  |  5.9s  |
+| 4    | pnpm unlock-file | 24.1s  |
+
+
 ## Test Performance
 
 - All tests are executed on MacBook Air M1 with 16G RAM 256 GB.
@@ -29,8 +52,6 @@
   - [Nest](https://nestjs.com/) v10.0.0
   - [Node](https://nodejs.org/en) v20.1.0
   - [Bun](https://bun.sh/) v1.0.3
-
-We will test 12 threads with 100 connections in 30s and 3 rounds
 
 Node v20 Express ~ 18k req/30s
 <p align="left">
